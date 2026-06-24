@@ -1,0 +1,316 @@
+/* 여름 바다/마린 스타일의 시원한 컬러 변수 설정 */
+:root {
+    --primary-marine: #00a8cc;
+    --deep-ocean: #0c7b93;
+    --soft-wave: #e4f9f5;
+    --beach-sand: #fdfaf6;
+    --coral-orange: #ff7e67;
+    --text-main: #2b2e4a;
+    --text-muted: #555870;
+    --pure-white: #ffffff;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+}
+
+body {
+    background-color: var(--beach-sand);
+    color: var(--text-main);
+    line-height: 1.7;
+    -webkit-font-smoothing: antialiased;
+}
+
+/* 상단 헤더 영역 (여름 그라데이션) */
+header {
+    background: linear-gradient(135deg, var(--primary-marine) 0%, var(--deep-ocean) 100%);
+    color: var(--pure-white);
+    text-align: center;
+    padding: 4rem 1rem;
+    position: relative;
+}
+
+header h1 {
+    font-size: 2.4rem;
+    font-weight: 800;
+    margin-bottom: 0.6rem;
+    letter-spacing: -1px;
+    text-shadow: 0 2px 8px rgba(12, 123, 147, 0.2);
+}
+
+header p {
+    font-size: 1.1rem;
+    opacity: 0.9;
+    font-weight: 400;
+}
+
+/* 레이아웃 컨테이너 */
+.container {
+    max-width: 760px;
+    margin: -2rem auto 4rem auto; /* 헤더 위로 살짝 겹치게 디자인 */
+    padding: 0 1.2rem;
+    position: relative;
+    z-index: 10;
+}
+
+/* 요약 정보 박스 */
+.info-box {
+    background-color: var(--pure-white);
+    padding: 1.8rem;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(12, 123, 147, 0.06);
+    margin-bottom: 3rem;
+    border-top: 6px solid var(--primary-marine);
+}
+
+.info-box h3 {
+    color: var(--deep-ocean);
+    font-size: 1.2rem;
+    margin-bottom: 0.8rem;
+}
+
+.info-box ul {
+    list-style: none;
+}
+
+.info-box li {
+    font-size: 0.95rem;
+    color: var(--text-muted);
+    margin-bottom: 0.5rem;
+    position: relative;
+    padding-left: 1.2rem;
+}
+
+.info-box li::before {
+    content: "•";
+    color: var(--primary-marine);
+    font-weight: bold;
+    position: absolute;
+    left: 0;
+}
+
+.highlight-text {
+    color: var(--coral-orange);
+    font-weight: 700;
+}
+
+/* 일차별 섹션 */
+.day-section {
+    margin-bottom: 3.5rem;
+}
+
+.day-title {
+    background-color: var(--soft-wave);
+    color: var(--deep-ocean);
+    padding: 0.6rem 1.4rem;
+    border-radius: 50px;
+    font-size: 1.2rem;
+    font-weight: 700;
+    margin-bottom: 2rem;
+    display: inline-block;
+    box-shadow: 0 4px 15px rgba(0, 168, 204, 0.08);
+}
+
+/* 반응형 모바일 최적화 타임라인 라인 */
+.timeline {
+    position: relative;
+    border-left: 2px dashed #bce6eb;
+    margin-left: 0.8rem;
+    padding-left: 1.8rem;
+}
+
+.timeline-item {
+    position: relative;
+    margin-bottom: 2rem;
+}
+
+/* 타임라인 원형 노드 */
+.timeline-item::before {
+    content: '';
+    position: absolute;
+    left: calc(-1.8rem - 7px);
+    top: 6px;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background-color: var(--primary-marine);
+    border: 3px solid var(--pure-white);
+    box-shadow: 0 0 0 3px #bce6eb;
+    z-index: 2;
+}
+
+/* 빵집 전용 노드 색상 교체 */
+.timeline-item.bakery::before {
+    background-color: var(--coral-orange);
+    box-shadow: 0 0 0 3px rgba(255, 126, 103, 0.25);
+}
+
+/* 시간 텍스트 */
+.time {
+    font-weight: 700;
+    color: var(--deep-ocean);
+    font-size: 0.9rem;
+    display: block;
+    margin-bottom: 0.4rem;
+    letter-spacing: 0.5px;
+}
+
+.timeline-item.bakery .time {
+    color: var(--coral-orange);
+}
+
+/* 아이템 본문 카드 */
+.content {
+    background-color: var(--pure-white);
+    padding: 1.2rem 1.4rem;
+    border-radius: 14px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.015);
+    border: 1px solid rgba(0, 168, 204, 0.04);
+}
+
+/* 빵집 카드 스타일 차별화 */
+.timeline-item.bakery .content {
+    border: 1px solid rgba(255, 126, 103, 0.2);
+    background: linear-gradient(to bottom right, var(--pure-white), #fffbfb);
+}
+
+.title {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: #1a1c29;
+    margin-bottom: 0.4rem;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap; /* 모바일에서 배지가 아래로 자연스럽게 떨어지도록 함 */
+    gap: 0.5rem;
+}
+
+.desc {
+    font-size: 0.95rem;
+    color: var(--text-muted);
+}
+
+/* 배지 스타일 */
+.badge {
+    font-size: 0.75rem;
+    padding: 0.2rem 0.5rem;
+    border-radius: 6px;
+    font-weight: 600;
+    position: relative;
+    cursor: help;
+}
+
+.badge-bakery {
+    background-color: #ffeae6;
+    color: var(--coral-orange);
+}
+
+.badge-alert {
+    background-color: #fff3cd;
+    color: #856404;
+    cursor: default;
+}
+
+/* ⭐ 핵심 기능: 영업일/영업시간 팝업(Tooltip) 플로팅 효과 */
+.badge-bakery .tooltip {
+    visibility: hidden;
+    width: 230px;
+    background-color: #2b2e4a;
+    color: #fff;
+    text-align: left;
+    border-radius: 10px;
+    padding: 0.8rem;
+    position: absolute;
+    z-index: 100;
+    bottom: 130%; /* 배지 위쪽에 배치 */
+    left: 50%;
+    transform: translateX(-50%);
+    opacity: 0;
+    transition: opacity 0.2s ease-in-out, transform 0.2s ease-in-out;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+    font-size: 0.8rem;
+    line-height: 1.5;
+    font-weight: 400;
+}
+
+/* 툴팁 말꼬리 화살표 */
+.badge-bakery .tooltip::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: #2b2e4a transparent transparent transparent;
+}
+
+/* Hover 및 Touch 시 팝업 띄우기 */
+.badge-bakery:hover .tooltip,
+.badge-bakery:active .tooltip {
+    visibility: visible;
+    opacity: 1;
+    transform: translateX(-50%) translateY(-5px);
+}
+
+/* 하단 푸터 */
+footer {
+    text-align: center;
+    padding: 3rem 1rem;
+    font-size: 0.85rem;
+    color: #a0a5c0;
+    background-color: #f1f5f7;
+    border-top: 1px solid #e1e6e8;
+}
+
+/* 📱 모바일 환경 반응형 코드 미디어쿼리 (600px 이하) */
+@media (max-width: 600px) {
+    header {
+        padding: 3rem 1rem;
+    }
+    
+    header h1 {
+        font-size: 1.8rem;
+    }
+
+    .container {
+        margin-top: -1rem;
+        padding: 0 1rem;
+    }
+
+    .timeline {
+        margin-left: 0.4rem;
+        padding-left: 1.3rem;
+    }
+
+    .timeline-item::before {
+        left: calc(-1.3rem - 6px);
+        top: 6px;
+    }
+
+    .content {
+        padding: 1rem;
+    }
+
+    .title {
+        font-size: 1rem;
+    }
+
+    /* 모바일에서는 툴팁이 화면 밖으로 벗어나는 것을 방지하기 위해 정렬 조정 */
+    .badge-bakery .tooltip {
+        left: auto;
+        right: -20px;
+        transform: translateX(0);
+    }
+    .badge-bakery .tooltip::after {
+        left: auto;
+        right: 40px;
+    }
+    .badge-bakery:hover .tooltip,
+    .badge-bakery:active .tooltip {
+        transform: translateY(-5px);
+    }
+}
