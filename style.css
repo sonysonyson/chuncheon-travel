@@ -24,7 +24,7 @@ body {
     -webkit-font-smoothing: antialiased;
 }
 
-/* 상단 헤더 영역 (여름 그라데이션) */
+/* 상단 헤더 영역 */
 header {
     background: linear-gradient(135deg, var(--primary-marine) 0%, var(--deep-ocean) 100%);
     color: var(--pure-white);
@@ -38,7 +38,6 @@ header h1 {
     font-weight: 800;
     margin-bottom: 0.6rem;
     letter-spacing: -1px;
-    text-shadow: 0 2px 8px rgba(12, 123, 147, 0.2);
 }
 
 header p {
@@ -50,7 +49,7 @@ header p {
 /* 레이아웃 컨테이너 */
 .container {
     max-width: 760px;
-    margin: -2rem auto 4rem auto; /* 헤더 위로 살짝 겹치게 디자인 */
+    margin: -2rem auto 4rem auto;
     padding: 0 1.2rem;
     position: relative;
     z-index: 10;
@@ -114,7 +113,7 @@ header p {
     box-shadow: 0 4px 15px rgba(0, 168, 204, 0.08);
 }
 
-/* 반응형 모바일 최적화 타임라인 라인 */
+/* 반응형 타임라인 라인 */
 .timeline {
     position: relative;
     border-left: 2px dashed #bce6eb;
@@ -127,7 +126,7 @@ header p {
     margin-bottom: 2rem;
 }
 
-/* 타임라인 원형 노드 */
+/* 타임라인 노드 */
 .timeline-item::before {
     content: '';
     position: absolute;
@@ -142,13 +141,11 @@ header p {
     z-index: 2;
 }
 
-/* 빵집 전용 노드 색상 교체 */
 .timeline-item.bakery::before {
     background-color: var(--coral-orange);
     box-shadow: 0 0 0 3px rgba(255, 126, 103, 0.25);
 }
 
-/* 시간 텍스트 */
 .time {
     font-weight: 700;
     color: var(--deep-ocean);
@@ -162,7 +159,7 @@ header p {
     color: var(--coral-orange);
 }
 
-/* 아이템 본문 카드 */
+/* 카드 본문 */
 .content {
     background-color: var(--pure-white);
     padding: 1.2rem 1.4rem;
@@ -171,7 +168,6 @@ header p {
     border: 1px solid rgba(0, 168, 204, 0.04);
 }
 
-/* 빵집 카드 스타일 차별화 */
 .timeline-item.bakery .content {
     border: 1px solid rgba(255, 126, 103, 0.2);
     background: linear-gradient(to bottom right, var(--pure-white), #fffbfb);
@@ -184,7 +180,7 @@ header p {
     margin-bottom: 0.4rem;
     display: flex;
     align-items: center;
-    flex-wrap: wrap; /* 모바일에서 배지가 아래로 자연스럽게 떨어지도록 함 */
+    flex-wrap: wrap;
     gap: 0.5rem;
 }
 
@@ -193,7 +189,7 @@ header p {
     color: var(--text-muted);
 }
 
-/* 배지 스타일 */
+/* 배지 및 플로팅 툴팁 */
 .badge {
     font-size: 0.75rem;
     padding: 0.2rem 0.5rem;
@@ -214,7 +210,6 @@ header p {
     cursor: default;
 }
 
-/* ⭐ 핵심 기능: 영업일/영업시간 팝업(Tooltip) 플로팅 효과 */
 .badge-bakery .tooltip {
     visibility: hidden;
     width: 230px;
@@ -225,7 +220,7 @@ header p {
     padding: 0.8rem;
     position: absolute;
     z-index: 100;
-    bottom: 130%; /* 배지 위쪽에 배치 */
+    bottom: 130%;
     left: 50%;
     transform: translateX(-50%);
     opacity: 0;
@@ -236,7 +231,6 @@ header p {
     font-weight: 400;
 }
 
-/* 툴팁 말꼬리 화살표 */
 .badge-bakery .tooltip::after {
     content: "";
     position: absolute;
@@ -248,7 +242,6 @@ header p {
     border-color: #2b2e4a transparent transparent transparent;
 }
 
-/* Hover 및 Touch 시 팝업 띄우기 */
 .badge-bakery:hover .tooltip,
 .badge-bakery:active .tooltip {
     visibility: visible;
@@ -256,7 +249,6 @@ header p {
     transform: translateX(-50%) translateY(-5px);
 }
 
-/* 하단 푸터 */
 footer {
     text-align: center;
     padding: 3rem 1rem;
@@ -266,40 +258,32 @@ footer {
     border-top: 1px solid #e1e6e8;
 }
 
-/* 📱 모바일 환경 반응형 코드 미디어쿼리 (600px 이하) */
+/* 📱 모바일 반응형 미디어쿼리 */
 @media (max-width: 600px) {
     header {
         padding: 3rem 1rem;
     }
-    
     header h1 {
         font-size: 1.8rem;
     }
-
     .container {
         margin-top: -1rem;
         padding: 0 1rem;
     }
-
     .timeline {
         margin-left: 0.4rem;
         padding-left: 1.3rem;
     }
-
     .timeline-item::before {
         left: calc(-1.3rem - 6px);
         top: 6px;
     }
-
     .content {
         padding: 1rem;
     }
-
     .title {
         font-size: 1rem;
     }
-
-    /* 모바일에서는 툴팁이 화면 밖으로 벗어나는 것을 방지하기 위해 정렬 조정 */
     .badge-bakery .tooltip {
         left: auto;
         right: -20px;
