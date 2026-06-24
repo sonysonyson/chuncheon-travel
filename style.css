@@ -1,10 +1,12 @@
-/* 여름 바다/마린 스타일의 시원한 컬러 변수 설정 */
+/* 여름 해변 및 마린 컨셉의 감각적인 컬러 팔레트 */
 :root {
     --primary-marine: #00a8cc;
     --deep-ocean: #0c7b93;
     --soft-wave: #e4f9f5;
     --beach-sand: #fdfaf6;
     --coral-orange: #ff7e67;
+    --bg-purple: #e8e3ff;     /* 춘천투어패스 라벨 바탕색: 연보라 */
+    --text-purple: #523cb5;   /* 춘천투어패스 라벨 폰트색: 진보라 */
     --text-main: #2b2e4a;
     --text-muted: #555870;
     --pure-white: #ffffff;
@@ -43,10 +45,9 @@ header h1 {
 header p {
     font-size: 1.1rem;
     opacity: 0.9;
-    font-weight: 400;
 }
 
-/* 레이아웃 컨테이너 */
+/* 레이아웃 디자인 */
 .container {
     max-width: 760px;
     margin: -2rem auto 4rem auto;
@@ -55,7 +56,6 @@ header p {
     z-index: 10;
 }
 
-/* 요약 정보 박스 */
 .info-box {
     background-color: var(--pure-white);
     padding: 1.8rem;
@@ -91,12 +91,10 @@ header p {
     left: 0;
 }
 
-.highlight-text {
-    color: var(--coral-orange);
-    font-weight: 700;
-}
+.highlight-orange { color: var(--coral-orange); font-weight: 700; }
+.highlight-purple { color: var(--text-purple); font-weight: 700; }
 
-/* 일차별 섹션 */
+/* 일차별 영역 */
 .day-section {
     margin-bottom: 3.5rem;
 }
@@ -113,7 +111,7 @@ header p {
     box-shadow: 0 4px 15px rgba(0, 168, 204, 0.08);
 }
 
-/* 반응형 타임라인 라인 */
+/* 반응형 모바일 최적화 타임라인 라인 */
 .timeline {
     position: relative;
     border-left: 2px dashed #bce6eb;
@@ -126,7 +124,7 @@ header p {
     margin-bottom: 2rem;
 }
 
-/* 타임라인 노드 */
+/* 타임라인 원형 노드 기본 스타일 */
 .timeline-item::before {
     content: '';
     position: absolute;
@@ -141,9 +139,16 @@ header p {
     z-index: 2;
 }
 
+/* 빵집 노드 전용 */
 .timeline-item.bakery::before {
     background-color: var(--coral-orange);
     box-shadow: 0 0 0 3px rgba(255, 126, 103, 0.25);
+}
+
+/* 춘천투어패스 노드 전용 연보라색 적용 */
+.timeline-item.tour-pass::before {
+    background-color: var(--text-purple);
+    box-shadow: 0 0 0 3px var(--bg-purple);
 }
 
 .time {
@@ -152,14 +157,12 @@ header p {
     font-size: 0.9rem;
     display: block;
     margin-bottom: 0.4rem;
-    letter-spacing: 0.5px;
 }
 
-.timeline-item.bakery .time {
-    color: var(--coral-orange);
-}
+.timeline-item.bakery .time { color: var(--coral-orange); }
+.timeline-item.tour-pass .time { color: var(--text-purple); }
 
-/* 카드 본문 */
+/* 본문 알림 카드 */
 .content {
     background-color: var(--pure-white);
     padding: 1.2rem 1.4rem;
@@ -168,9 +171,15 @@ header p {
     border: 1px solid rgba(0, 168, 204, 0.04);
 }
 
+/* 테마 카드별 색상 커스텀 */
 .timeline-item.bakery .content {
     border: 1px solid rgba(255, 126, 103, 0.2);
     background: linear-gradient(to bottom right, var(--pure-white), #fffbfb);
+}
+
+.timeline-item.tour-pass .content {
+    border: 1px solid rgba(177, 159, 251, 0.25);
+    background: linear-gradient(to bottom right, var(--pure-white), #fafdff);
 }
 
 .title {
@@ -189,27 +198,35 @@ header p {
     color: var(--text-muted);
 }
 
-/* 배지 및 플로팅 툴팁 */
+/* 배지 그룹 */
 .badge {
     font-size: 0.75rem;
     padding: 0.2rem 0.5rem;
     border-radius: 6px;
     font-weight: 600;
     position: relative;
-    cursor: help;
 }
 
 .badge-bakery {
     background-color: #ffeae6;
     color: var(--coral-orange);
+    cursor: help;
+}
+
+/* ⭐ 춘천투어패스 라벨 스타일: 바탕색 연보라, 폰트색 매칭 진보라 */
+.badge-purple {
+    background-color: var(--bg-purple);
+    color: var(--text-purple);
+    cursor: default;
+    border: 1px solid rgba(177, 159, 251, 0.4);
 }
 
 .badge-alert {
     background-color: #fff3cd;
     color: #856404;
-    cursor: default;
 }
 
+/* 🎈 빵집 전용 Hover 정보 툴팁 시스템 */
 .badge-bakery .tooltip {
     visibility: hidden;
     width: 230px;
@@ -258,43 +275,15 @@ footer {
     border-top: 1px solid #e1e6e8;
 }
 
-/* 📱 모바일 반응형 미디어쿼리 */
+/* 📱 완벽한 반응형 웹 지원을 위한 미디어쿼리 */
 @media (max-width: 600px) {
-    header {
-        padding: 3rem 1rem;
-    }
-    header h1 {
-        font-size: 1.8rem;
-    }
-    .container {
-        margin-top: -1rem;
-        padding: 0 1rem;
-    }
-    .timeline {
-        margin-left: 0.4rem;
-        padding-left: 1.3rem;
-    }
-    .timeline-item::before {
-        left: calc(-1.3rem - 6px);
-        top: 6px;
-    }
-    .content {
-        padding: 1rem;
-    }
-    .title {
-        font-size: 1rem;
-    }
-    .badge-bakery .tooltip {
-        left: auto;
-        right: -20px;
-        transform: translateX(0);
-    }
-    .badge-bakery .tooltip::after {
-        left: auto;
-        right: 40px;
-    }
-    .badge-bakery:hover .tooltip,
-    .badge-bakery:active .tooltip {
-        transform: translateY(-5px);
-    }
+    header h1 { font-size: 1.8rem; }
+    .container { margin-top: -1rem; padding: 0 1rem; }
+    .timeline { margin-left: 0.4rem; padding-left: 1.3rem; }
+    .timeline-item::before { left: calc(-1.3rem - 6px); }
+    .content { padding: 1rem; }
+    .title { font-size: 1rem; }
+    .badge-bakery .tooltip { left: auto; right: -20px; transform: translateX(0); }
+    .badge-bakery .tooltip::after { left: auto; right: 40px; }
+    .badge-bakery:hover .tooltip, .badge-bakery:active .tooltip { transform: translateY(-5px); }
 }
